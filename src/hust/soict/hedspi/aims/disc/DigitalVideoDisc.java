@@ -1,0 +1,78 @@
+package hust.soict.hedspi.aims.disc;
+//this class only has instance variables: title, category, director,length, cost,id 
+public class DigitalVideoDisc { 
+	private static int  nbDigitalVideoDiscs = 0;
+	private String title;
+	private String category;
+	private String director;
+	private int length;
+	private float cost;
+	private int id;
+	public String getTitle() {
+		return title;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public String getDirector() {
+		return director;
+	}
+	public int getLength() {
+		return length;
+	}
+	public float getCost() {
+		return cost;
+	}
+	public int getId() {
+		return id;
+	}
+	public DigitalVideoDisc(String title) {
+		super();
+		this.title = title;
+		nbDigitalVideoDiscs++;
+		this.id=nbDigitalVideoDiscs;
+	}
+	
+	public DigitalVideoDisc(String title, String category, float cost) {
+		super();
+		this.title = title;
+		this.category = category;
+		this.cost = cost;
+		nbDigitalVideoDiscs++;
+		this.id=nbDigitalVideoDiscs;
+	}
+	public DigitalVideoDisc(String title, String category, String director, float cost) {
+		super();
+		this.title = title;
+		this.category = category;
+		this.director = director;
+		this.cost = cost;
+		nbDigitalVideoDiscs++;
+		this.id=nbDigitalVideoDiscs;
+	}
+	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
+		super();
+		this.title = title;
+		this.category = category;
+		this.director = director;
+		this.length = length;
+		this.cost = cost;
+		nbDigitalVideoDiscs++;
+		this.id=nbDigitalVideoDiscs;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	@Override
+	public String toString() {
+	    return "DVD - " + this.getTitle() + " - " + this.getCategory() + " - " + 
+	           this.getDirector() + " - " + this.getLength() + ": " + this.getCost() + " $";
+	}
+	
+	public boolean isMatch(String title) {
+	    // So sánh không phân biệt chữ hoa chữ thường
+	    return this.getTitle().toLowerCase().contains(title.toLowerCase());
+	}
+	
+}
