@@ -1,0 +1,25 @@
+1. Điều gì xảy ra khi người dùng chọn "Cancel"?
+
+Trả lời: Khi nhấn "Cancel", phương thức sẽ trả về giá trị là 2 (tương ứng với hằng số JOptionPane.CANCEL_OPTION). Vì mã nguồn của bạn thường chỉ kiểm tra điều kiện cho nút "Yes" (YES_OPTION), nên khi nhấn "Cancel", điều kiện này sẽ trả về false. Kết quả là chương trình sẽ thực hiện nhánh else (hiển thị "No") và sau đó kết thúc.
+
+2. Cách tùy chỉnh các nút bấm (Customization)
+
+* Để giới hạn lựa chọn chỉ còn "Yes" và "No": 
+Bạn chỉ cần thay đổi tham số optionType trong phương thức showConfirmDialog.
+Ví dụ: 
+int option = JOptionPane.showConfirmDialog(null, "Message", "Title", JOptionPane.YES_NO_OPTION);
+
+* Để sử dụng văn bản tùy chỉnh (ví dụ: "I do" và "I don't"): 
+Bạn cần chuyển sang sử dụng phương thức showOptionDialog. Hàm này cho phép bạn truyền vào một mảng String để định nghĩa chính xác nhãn cho từng nút bấm.
+
+Ví dụ code:
+
+Object[] customChoices = {"I do", "I don't"};
+int n = JOptionPane.showOptionDialog(null,
+    "Do you want to proceed?",
+    "Selection",
+    JOptionPane.YES_NO_OPTION,
+    JOptionPane.QUESTION_MESSAGE,
+    null,    
+    customChoices,  
+    customChoices[0]); // Thiết lập "I do" là nút mặc định khi nhấn Enter
