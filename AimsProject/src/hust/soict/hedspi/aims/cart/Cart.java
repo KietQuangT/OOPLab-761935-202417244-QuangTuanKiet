@@ -54,6 +54,7 @@ public class Cart {
             // Lưu ý: Bạn cần đảm bảo class Media cũng có hàm isMatch 
             // hoặc ép kiểu về DVD nếu chỉ muốn tìm DVD
             if (media.getTitle().toLowerCase().contains(title.toLowerCase())) {
+            if (media.isMatch(title)) {
                 System.out.println("Found: " + media.toString());
                 found = true;
             }
