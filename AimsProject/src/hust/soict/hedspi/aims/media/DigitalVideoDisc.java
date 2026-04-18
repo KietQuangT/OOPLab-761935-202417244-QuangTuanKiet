@@ -1,18 +1,7 @@
 package hust.soict.hedspi.aims.media;
 
-public class DigitalVideoDisc extends Media { 
+public class DigitalVideoDisc extends Disc { 
 	private static int nbDigitalVideoDiscs = 0;
-	private String director;
-	private int length;
-	
-	public String getDirector() {
-		return director;
-	}
-	public int getLength() {
-		return length;
-	}
-	
-	
 	public DigitalVideoDisc(String title) {
 		super();
 		this.setTitle(title); // Dùng hàm Setter thay vì gọi trực tiếp biến
@@ -33,7 +22,7 @@ public class DigitalVideoDisc extends Media {
 		super();
 		this.setTitle(title);
 		this.setCategory(category);
-		this.director = director; // director là biến riêng của DVD nên vẫn dùng this.director bình thường
+		this.setDirector(director); // director là biến riêng của DVD nên vẫn dùng this.director bình thường
 		this.setCost(cost);
 		nbDigitalVideoDiscs++;
 		this.setId(nbDigitalVideoDiscs);
@@ -43,8 +32,8 @@ public class DigitalVideoDisc extends Media {
 		super();
 		this.setTitle(title);
 		this.setCategory(category);
-		this.director = director; 
-		this.length = length;     // length cũng là biến riêng nên dùng this.length
+		this.setDirector(director); 
+		this.setLength(length);     // length cũng là biến riêng nên dùng this.length
 		this.setCost(cost);
 		nbDigitalVideoDiscs++;
 		this.setId(nbDigitalVideoDiscs);
