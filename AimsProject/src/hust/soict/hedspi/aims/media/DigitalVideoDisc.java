@@ -1,6 +1,6 @@
 package hust.soict.hedspi.aims.media;
 
-public class DigitalVideoDisc extends Disc { 
+public class DigitalVideoDisc extends Disc implements Playable{ 
 	private static int nbDigitalVideoDiscs = 0;
 	public DigitalVideoDisc(String title) {
 		super();
@@ -48,5 +48,10 @@ public class DigitalVideoDisc extends Disc {
 	public boolean isMatch(String title) {
 	    // So sánh không phân biệt chữ hoa chữ thường
 	    return this.getTitle().toLowerCase().contains(title.toLowerCase());
+	}
+	
+	public void play() {
+		System.out.println("Playing track: " + this.getTitle());
+		System.out.println("Track length: " + this.getLength());
 	}
 }
