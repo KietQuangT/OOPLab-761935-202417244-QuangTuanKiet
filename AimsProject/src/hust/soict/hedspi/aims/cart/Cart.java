@@ -67,4 +67,15 @@ public class Cart {
 	    Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
 	    System.out.println("Cart has been sorted by cost.");
 	}
+	public void empty() {
+	    itemsOrdered.clear();
+	}
+	public Media fetchMedia(String title) {
+	    for (Media m : itemsOrdered) {
+	        if (m.getTitle().equalsIgnoreCase(title)) {
+	            return m;
+	        }
+	    }
+	    return null; // Không tìm thấy
+	}
 }

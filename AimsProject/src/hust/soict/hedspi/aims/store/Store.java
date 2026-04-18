@@ -1,6 +1,7 @@
 package hust.soict.hedspi.aims.store;
-import hust.soict.hedspi.aims.media.Media;
 import java.util.ArrayList;
+
+import hust.soict.hedspi.aims.media.Media;
 public class Store {
 	private ArrayList<Media> itemsInStore=new ArrayList<Media>();
 	
@@ -20,7 +21,7 @@ public class Store {
             System.out.println("The media is not found in the store.");
         }
     }
-	public void printStore() {
+	public void print() {
 	    System.out.println("***********************STORE***********************");
 	    System.out.println("Items in the store:");
 	   
@@ -29,5 +30,13 @@ public class Store {
 	    }
 	    
 	    System.out.println("***************************************************");
+	}
+	public Media fetchMedia(String title) {
+	    for (Media m : itemsInStore) {
+	        if (m.getTitle().equalsIgnoreCase(title)) {
+	            return m;
+	        }
+	    }
+	    return null; // Không tìm thấy
 	}
 }
