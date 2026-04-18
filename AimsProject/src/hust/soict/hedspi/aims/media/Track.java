@@ -12,12 +12,24 @@ public class Track implements Playable{
 		return length;
 	}
 
-	public Track() {
+	public Track(String title,int length) {
 		// TODO Auto-generated constructor stub
+		this.title=title;
+		this.length=length;
 	}
 	
 	public void play() {
 		System.out.println("Playing track: " + this.getTitle());
 		System.out.println("Track length: " + this.getLength());
+	}
+	@Override
+	public boolean equals(Object o) {
+	    if (!(o instanceof Track)) {
+	        return false;
+	    }
+	    Track other = (Track) o;
+	    
+	    return this.title.equalsIgnoreCase(other.getTitle()) 
+	           && this.length == other.getLength();
 	}
 }

@@ -1,6 +1,7 @@
 package hust.soict.hedspi.aims;
 
 import hust.soict.hedspi.aims.cart.Cart;
+import hust.soict.hedspi.aims.media.Book;
 import hust.soict.hedspi.aims.media.DigitalVideoDisc;
 
 public class Aims {
@@ -18,11 +19,14 @@ public class Aims {
 
 		DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin",
 		        "Animation", 18.99f);
-		DigitalVideoDisc[] list = {dvd1, dvd2, dvd3};
-		anOrder.addDigitalVideoDisc(list);
-		anOrder.displayCartItems();
-		System.out.println("Total Cost is: "+anOrder.totalCost());
-		anOrder.searchByTitle("the");
+		Book book1=new Book("Dog");
+		book1.addAuthor("KietQuang");
+		book1.addAuthor("Gia Kien");
+		anOrder.addMedia(dvd1);
+		anOrder.addMedia(dvd2);
+		anOrder.addMedia(dvd3);
+		anOrder.addMedia(book1);
+		anOrder.print();
 	}
 
 }

@@ -17,15 +17,15 @@ public class StoreTest {
                 "Animation", 18.99f);
 
         // Add DVDs to store
-        store.addDVD(dvd1);
-        store.addDVD(dvd2);
-        store.addDVD(dvd3);
+        store.addMedia(dvd1);
+        store.addMedia(dvd2);
+        store.addMedia(dvd3);
 
         // Print store contents
         store.printStore();
 
         // Remove one DVD
-        store.removeDVD(dvd2);
+        store.removeMedia(dvd2);
 
         // Print store again
         store.printStore();
