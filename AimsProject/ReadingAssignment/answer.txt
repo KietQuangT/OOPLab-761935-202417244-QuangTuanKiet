@@ -1,0 +1,19 @@
+Reading Assignment: Please answer three questions below:
+- What are the advantages of Polymorphism?
+- How is Inheritance useful to achieve Polymorphism in Java?
+- What are the differences between Polymorphism and Inheritance in Java?
+Answer: 
+	- Polymorphism giúp chương trình trở nên linh hoạt hơn vì cùng một phương thức có thể hoạt động theo nhiều cách khác nhau tùy vào đối tượng sử dụng. 
+Nhờ đó, lập trình viên có thể tái sử dụng mã nguồn hiệu quả hơn, giảm sự trùng lặp và giúp chương trình dễ bảo trì, dễ mở rộng khi phát triển thêm các lớp mới.
+
+	- Inheritance cho phép lớp con kế thừa các thuộc tính và phương thức từ lớp cha, đồng thời có thể ghi đè phương thức để tạo ra cách xử lý riêng. Khi sử dụng tham 
+chiếu của lớp cha để quản lý đối tượng lớp con, Java sẽ tự động gọi phương thức phù hợp của lớp con khi chương trình chạy. Đây chính là cách inheritance hỗ trợ thực hiện polymorphism.
+
+	- Sự khác nhau giữa Polymorphism và Inheritance**
+Inheritance là cơ chế tạo mối quan hệ kế thừa giữa các lớp, giúp lớp con sử dụng lại những gì lớp cha đã có. Trong khi đó, polymorphism là khả năng cho phép cùng một 
+phương thức thể hiện nhiều hành vi khác nhau trên các đối tượng khác nhau. Nói cách khác, inheritance tạo nền tảng cho sự kế thừa, còn polymorphism giúp tận dụng sự kế 
+thừa đó để chương trình linh hoạt hơn.
+
+
+
+	

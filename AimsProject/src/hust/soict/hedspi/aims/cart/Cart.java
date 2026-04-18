@@ -2,6 +2,7 @@ package hust.soict.hedspi.aims.cart;
 import java.util.ArrayList;
 
 import hust.soict.hedspi.aims.media.Media;
+import java.util.Collections;
 
 public class Cart {
 	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
@@ -58,5 +59,12 @@ public class Cart {
         }
         if (!found) System.out.println("No match found for title: " + title);
     }
-	
+	public void sortByTitle() {
+	    Collections.sort(itemsOrdered, Media.COMPARE_BY_TITLE_COST);
+	    System.out.println("Cart has been sorted by title.");
+	}
+	public void sortByCost() {
+	    Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
+	    System.out.println("Cart has been sorted by cost.");
+	}
 }
