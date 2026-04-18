@@ -12,14 +12,25 @@ public class Cart {
 			System.out.println("The cart is almost full");
 	}
 	public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
-		for (int i=0;i<qtyOrdered;i++)
-			if (disc==itemsOrdered[i]){
-				for (int j=i;j<qtyOrdered-1;j++)
-					itemsOrdered[j]=itemsOrdered[j+1];
-				itemsOrdered[--qtyOrdered]=null;
-				i--;
-			}
-		System.out.println("The disc has been removed\n");
+	    boolean found = false;
+
+	    for (int i = 0; i < qtyOrdered; i++) {
+	        if (itemsOrdered[i] == disc) {
+	            for (int j = i; j < qtyOrdered - 1; j++) {
+	                itemsOrdered[j] = itemsOrdered[j + 1];
+	            }
+
+	            itemsOrdered[--qtyOrdered] = null;
+	            found = true;
+	            break;
+	        }
+	    }
+
+	    if (found) {
+	        System.out.println("The disc has been removed");
+	    } else {
+	        System.out.println("The disc was not found");
+	    }
 	}
 	public float totalCost() {
 		float sum=0;
