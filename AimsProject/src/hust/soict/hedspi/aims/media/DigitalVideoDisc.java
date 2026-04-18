@@ -1,67 +1,53 @@
-package hust.soict.hedspi.aims.disc;
-//this class only has instance variables: title, category, director,length, cost,id 
-public class DigitalVideoDisc { 
-	private static int  nbDigitalVideoDiscs = 0;
-	private String title;
-	private String category;
+package hust.soict.hedspi.aims.media;
+
+public class DigitalVideoDisc extends Media { 
+	private static int nbDigitalVideoDiscs = 0;
 	private String director;
 	private int length;
-	private float cost;
-	private int id;
-	public String getTitle() {
-		return title;
-	}
-	public String getCategory() {
-		return category;
-	}
+	
 	public String getDirector() {
 		return director;
 	}
 	public int getLength() {
 		return length;
 	}
-	public float getCost() {
-		return cost;
-	}
-	public int getId() {
-		return id;
-	}
+	
+	
 	public DigitalVideoDisc(String title) {
 		super();
-		this.title = title;
+		this.setTitle(title); // Dùng hàm Setter thay vì gọi trực tiếp biến
 		nbDigitalVideoDiscs++;
-		this.id=nbDigitalVideoDiscs;
+		this.setId(nbDigitalVideoDiscs);
 	}
 	
 	public DigitalVideoDisc(String title, String category, float cost) {
 		super();
-		this.title = title;
-		this.category = category;
-		this.cost = cost;
+		this.setTitle(title);
+		this.setCategory(category);
+		this.setCost(cost);
 		nbDigitalVideoDiscs++;
-		this.id=nbDigitalVideoDiscs;
+		this.setId(nbDigitalVideoDiscs);
 	}
+	
 	public DigitalVideoDisc(String title, String category, String director, float cost) {
 		super();
-		this.title = title;
-		this.category = category;
-		this.director = director;
-		this.cost = cost;
+		this.setTitle(title);
+		this.setCategory(category);
+		this.director = director; // director là biến riêng của DVD nên vẫn dùng this.director bình thường
+		this.setCost(cost);
 		nbDigitalVideoDiscs++;
-		this.id=nbDigitalVideoDiscs;
+		this.setId(nbDigitalVideoDiscs);
 	}
+	
 	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
 		super();
-		this.title = title;
-		this.category = category;
-		this.director = director;
-		this.length = length;
-		this.cost = cost;
+		this.setTitle(title);
+		this.setCategory(category);
+		this.director = director; 
+		this.length = length;     // length cũng là biến riêng nên dùng this.length
+		this.setCost(cost);
 		nbDigitalVideoDiscs++;
-		this.id=nbDigitalVideoDiscs;
-	}
-	public void setTitle(String title) {
-		this.title = title;
+		this.setId(nbDigitalVideoDiscs);
 	}
 	
 	@Override
@@ -74,5 +60,4 @@ public class DigitalVideoDisc {
 	    // So sánh không phân biệt chữ hoa chữ thường
 	    return this.getTitle().toLowerCase().contains(title.toLowerCase());
 	}
-	
 }
