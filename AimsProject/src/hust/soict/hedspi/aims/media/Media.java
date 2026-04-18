@@ -41,5 +41,15 @@ public abstract class Media {
 	public Media() {
 		// TODO Auto-generated constructor stub
 	}	
+	@Override
+	public String toString() {
+	    return "DVD - " + this.getTitle() + " - " + this.getCategory() + " - " + 
+	           this.getDirector() + " - " + this.getLength() + ": " + this.getCost() + " $";
+	}
+	
+	public boolean isMatch(String title) {
+	    // So sánh không phân biệt chữ hoa chữ thường
+	    return this.getTitle().toLowerCase().contains(title.toLowerCase());
+	}
 	
 }

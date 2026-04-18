@@ -39,16 +39,6 @@ public class DigitalVideoDisc extends Disc implements Playable{
 		this.setId(nbDigitalVideoDiscs);
 	}
 	
-	@Override
-	public String toString() {
-	    return "DVD - " + this.getTitle() + " - " + this.getCategory() + " - " + 
-	           this.getDirector() + " - " + this.getLength() + ": " + this.getCost() + " $";
-	}
-	
-	public boolean isMatch(String title) {
-	    // So sánh không phân biệt chữ hoa chữ thường
-	    return this.getTitle().toLowerCase().contains(title.toLowerCase());
-	}
 	
 	public void play() {
 		System.out.println("Playing track: " + this.getTitle());
