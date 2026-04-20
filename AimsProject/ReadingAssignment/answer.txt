@@ -1,30 +1,3 @@
-Reading Assignment: Please answer three questions below:
-- What are the advantages of Polymorphism?
-- How is Inheritance useful to achieve Polymorphism in Java?
-- What are the differences between Polymorphism and Inheritance in Java?
-Answer: 
-	- Polymorphism giúp chương trình trở nên linh hoạt hơn vì cùng một phương thức có thể hoạt động theo nhiều cách khác nhau tùy vào đối tượng sử dụng. 
-Nhờ đó, lập trình viên có thể tái sử dụng mã nguồn hiệu quả hơn, giảm sự trùng lặp và giúp chương trình dễ bảo trì, dễ mở rộng khi phát triển thêm các lớp mới.
-
-	- Inheritance cho phép lớp con kế thừa các thuộc tính và phương thức từ lớp cha, đồng thời có thể ghi đè phương thức để tạo ra cách xử lý riêng. Khi sử dụng tham 
-chiếu của lớp cha để quản lý đối tượng lớp con, Java sẽ tự động gọi phương thức phù hợp của lớp con khi chương trình chạy. Đây chính là cách inheritance hỗ trợ thực hiện polymorphism.
-
-	- Sự khác nhau giữa Polymorphism và Inheritance**
-Inheritance là cơ chế tạo mối quan hệ kế thừa giữa các lớp, giúp lớp con sử dụng lại những gì lớp cha đã có. Trong khi đó, polymorphism là khả năng cho phép cùng một 
-phương thức thể hiện nhiều hành vi khác nhau trên các đối tượng khác nhau. Nói cách khác, inheritance tạo nền tảng cho sự kế thừa, còn polymorphism giúp tận dụng sự kế 
-thừa đó để chương trình linh hoạt hơn.
-
-Question: Alternatively, to compare items in the cart, instead of using the Comparator class I have 
-mentioned, you can use the Comparable interface1 and override the compareTo()method. You can 
-refer to the Java docs to see the information of this interface. 
-Suppose we are taking this Comparable interface approach.
-- What class should implement the Comparable interface?
-- In those classes, how should you implement the compareTo()method to reflect the ordering that 
-we want?
-- Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this 
-Comparable interface approach?
-- Suppose the DVDs have a different ordering rule from the other media types, that is by title, then 
-decreasing length, then cost. How would you modify your code to allow this?
 Answer:
 	- Lớp cha "Media" nên là lớp implement giao diện Comparable. Cụ thể là: public abstract class Media implements Comparable<Media>. Vì giỏ hàng (Cart) của chúng ta chứa 
 danh sách các đối tượng Media (ArrayList<Media>). Khi gọi Collections.sort(), Java cần biết cách so sánh các phần tử kiểu Media với nhau. Các lớp con (Book, DigitalVideoDisc, CompactDisc)
@@ -40,7 +13,7 @@ sẽ tự động kế thừa khả năng so sánh này từ Media.
 	// Ưu tiên 2: Nếu Title giống nhau, so sánh theo Cost (Giảm dần)
 	return Float.compare(other.getCost(), this.getCost());
 	}
-	- Không. Giao diện Comparable được dùng để định nghĩa "Natural Ordering" (Thứ tự sắp xếp tự nhiên/mặc định) của một đối tượng. Mỗi class chỉ có thể có DUY NHẤT MỘT hàm compareTo(). 
+	- Không. Giao diện Comparable được dùng để định nghĩa "Natural Ordering" (Thứ tự sắp xếp tự nhiên/mặc định) của một đối tượng. Mỗi class chỉ có thể có duy nhất 1 hàm  hàm compareTo(). 
 Do đó, bạn chỉ có thể chọn 1 trong 2 quy tắc để làm mặc định.
 	- Lợi dụng tính Đa hình (Polymorphism) bằng cách ghi đè (Override) lại hàm compareTo() ngay bên trong lớp con DigitalVideoDisc. Ý tưởng:
 	+ Nếu đối tượng đem ra so sánh cũng là một chiếc đĩa DVD -> Áp dụng luật riêng của DVD (Title -> Length -> Cost).
