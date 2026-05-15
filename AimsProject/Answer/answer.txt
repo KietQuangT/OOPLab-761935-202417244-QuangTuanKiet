@@ -1,20 +1,83 @@
+1,Programming with AWT and Swing is quite similar (similar elements including container/components, and 
+event-handling). However, there are some differences that you need to note:
+o Compare the top-level containers in Swing and AWT
+o Compare the class name of components in AWT and the corresponding class’s name in Swing
+o Compare the event-handling of Swing and AWT applications
+The resulting appearances of the applications developed using Swing and AWT might be different as well. 
+Make comparisons
+
 Answer:
-	- Lớp cha "Media" nên là lớp implement giao diện Comparable. Cụ thể là: public abstract class Media implements Comparable<Media>. Vì giỏ hàng (Cart) của chúng ta chứa 
-danh sách các đối tượng Media (ArrayList<Media>). Khi gọi Collections.sort(), Java cần biết cách so sánh các phần tử kiểu Media với nhau. Các lớp con (Book, DigitalVideoDisc, CompactDisc)
-sẽ tự động kế thừa khả năng so sánh này từ Media.
-	- Trong lớp Media, ta sẽ ghi đè (override) phương thức compareTo(Media other). Giả sử ta chọn thứ tự mặc định là "Theo Tiêu đề (A-Z) rồi đến Giá (Giảm dần)". Đoạn code cụ thể sẽ như sau:
-	@Override
-	public int compareTo(Media other) {
-	// Ưu tiên 1: So sánh theo Title (Alphabetical)
-	int titleCompare = this.getTitle().compareToIgnoreCase(other.getTitle());
-	if (titleCompare != 0) {
-	return titleCompare;
-	}
-	// Ưu tiên 2: Nếu Title giống nhau, so sánh theo Cost (Giảm dần)
-	return Float.compare(other.getCost(), this.getCost());
-	}
-	- Không. Giao diện Comparable được dùng để định nghĩa "Natural Ordering" (Thứ tự sắp xếp tự nhiên/mặc định) của một đối tượng. Mỗi class chỉ có thể có duy nhất 1 hàm  hàm compareTo(). 
-Do đó, bạn chỉ có thể chọn 1 trong 2 quy tắc để làm mặc định.
-	- Lợi dụng tính Đa hình (Polymorphism) bằng cách ghi đè (Override) lại hàm compareTo() ngay bên trong lớp con DigitalVideoDisc. Ý tưởng:
-	+ Nếu đối tượng đem ra so sánh cũng là một chiếc đĩa DVD -> Áp dụng luật riêng của DVD (Title -> Length -> Cost).
-	+ Nếu đối tượng đem ra so sánh là Sách hoặc CD (không phải DVD) -> Đẩy ngược lên cho lớp cha (Media) giải quyết bằng lệnh super.compareTo().
+COMPARISON BETWEEN AWT AND SWING
+
+1. Top-level Containers
+
+AWT and Swing use different top-level containers for creating GUI applications.
+
+* AWT uses:
+
+  * Frame
+  * Dialog
+  * Applet
+
+* Swing uses:
+
+  * JFrame
+  * JDialog
+  * JApplet
+
+Swing containers usually start with the letter “J”.
+
+2. Component Class Names
+
+The class names of Swing components are similar to AWT components, but Swing components have an additional “J” at the beginning.
+
+Examples:
+
+| AWT Component | Swing Component |
+| ------------- | --------------- |
+| Button        | JButton         |
+| Label         | JLabel          |
+| TextField     | JTextField      |
+| TextArea      | JTextArea       |
+| Checkbox      | JCheckBox       |
+| List          | JList           |
+
+Swing provides more advanced and flexible components than AWT.
+
+3. Event-handling
+
+The event-handling mechanism in AWT and Swing is almost the same.
+
+* Both use the Event Delegation Model.
+* Both use listeners such as:
+
+  * ActionListener
+  * MouseListener
+  * KeyListener
+
+Since Swing is built on top of AWT, Swing applications use the same event-handling approach as AWT applications.
+
+4. Appearance of Applications
+
+Applications developed using AWT and Swing may look different.
+
+AWT:
+
+* Uses native operating system components.
+* Appearance depends on the operating system.
+* Components are called heavyweight components.
+
+Swing:
+
+* Components are written mostly in Java.
+* Provides a consistent appearance across platforms.
+* Supports customizable Look and Feel.
+* Components are lightweight and more flexible.
+
+Therefore, Swing applications usually have a more modern and consistent interface compared to AWT applications.
+
+5. Conclusion
+
+* AWT is simpler and depends on native OS components.
+* Swing is more powerful, flexible, and platform-independent.
+* Swing provides richer GUI components and better customization features.

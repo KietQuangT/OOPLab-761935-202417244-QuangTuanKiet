@@ -31,6 +31,9 @@ public class Store {
 	    
 	    System.out.println("***************************************************");
 	}
+	public ArrayList<Media> getItemsInStore() {
+		return itemsInStore;
+	}
 	public Media fetchMedia(String title) {
 	    for (Media m : itemsInStore) {
 	        if (m.getTitle().equalsIgnoreCase(title)) {
@@ -39,4 +42,5 @@ public class Store {
 	    }
 	    return null; // Không tìm thấy
 	}
+	
 }
