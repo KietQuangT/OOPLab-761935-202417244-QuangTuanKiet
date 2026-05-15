@@ -22,12 +22,12 @@ public class StoreTest {
         store.addMedia(dvd3);
 
         // Print store contents
-        store.printStore();
+        store.print();
 
         // Remove one DVD
         store.removeMedia(dvd2);
 
         // Print store again
-        store.printStore();
+        store.print();
     }
 }
